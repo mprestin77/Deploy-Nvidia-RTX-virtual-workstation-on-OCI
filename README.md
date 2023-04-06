@@ -65,11 +65,13 @@ Oracle Linux 8
   lsmod | grep nouveau
      
   If it shows nouveau driver in the output of the command, you’ll need to disable it first. To disable nouveau driver on Oracle Linux create the /etc/modprobe.d/blacklist-nouveau.conf file and add the content below:
-     
+
+  ```   
   blacklist nouveau
   
   options nouveau modeset=0
-     
+  ```
+  
   Save the file and re-generate initramfs:
   
   sudo dracut --force
