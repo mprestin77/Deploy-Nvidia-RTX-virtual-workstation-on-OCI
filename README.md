@@ -116,7 +116,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   blacklist nouveau
   
   options nouveau modeset=0
-  
+  ```
   Save the file and re-generate initramfs
   ```
   sudo dracut --force
