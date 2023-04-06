@@ -34,7 +34,7 @@ Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linu
 
 When provisioning a compute instance on OCI use a standard OS image.  Do not use GPU enabled images because the installed NVIDIA GPU driver does not support RTX virtual workstation (vWS) that requires NVIDIA vGPU driver to be installed.
 
-    ![image "Image 1"](./images/Image1.png)
+    ![image](/images/Image1.png)
 
 ### Task 2: Download and install NVIDIA vGPU driver.
 
