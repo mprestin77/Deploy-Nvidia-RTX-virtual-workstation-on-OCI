@@ -1,66 +1,64 @@
-# terraform-oci-module-example
-## Provisioning Infrastructure on OCI Using Terraform Modules
-This example shows how to use Terraform modules to provision the following resources:
+--
+duration: PT0H30M0S
+description: Learn how to deploy Nvidia RTX virtual workstation on OCI
+level: Advanced
+roles: Devops;Developer;
+lab-id:
+products: en/cloud/oracle-cloud-infrastructure/oci;
+keywords: OKE
+inject-note: true
+---
 
-- It creates a Virtual Cloud Network on OCI with a public and private subnets, security lists and route tables, and enables security rules
+# Deploy NVIDIA RTX Virtual Workstation on OCI
 
-- It provisions a pool of preemtible compute instances VMs on the private subnet using all available ADs in the region
+## Introduction
 
-   
-## Prerequisites
+NVIDIA RTX Virtual Workstation software enables users to run high-performance simulations, graphic rendering, and design workloads on cloud, with a native workstation-like performance. It unlocks powerful rendering capabilities provided by graphic APIs such as OpenGL or DirectX, bringing breakthrough graphics performance to the cloud. This article explains how to leverage RTX and NVIDIA Virtual GPU technology using NVIDIA A10 GPU-enabled compute shapes on Oracle Cloud Infrastructure (OCI)
 
-- Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy: `vcns`, `internet-gateways`, `route-tables`, `security-lists`, `subnets`, and `instances`.
 
-- OCPU Compute Limit for the requested instance shape
+### Task 1: Provision a compute instance on OCI for Nvidia RTX virtual workstation.
 
-If you don't have the required permissions or the compute limit is not set, contact your tenancy administrator. See [Policy Reference](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Reference/policyreference.htm), [Service Limits](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm), [Compartment Quotas](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcequotas.htm).
+To create a vitual cloud network (VCN) and launch a compute instance on OCI see
+[Create a VCN](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#create-a-vcn)
+[Launch COmpute Instance](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#launch-compute-instance)
 
-### Clone the Repository
-Now, you'll want a local copy of this repo. You can make that with the commands:
+Choose one of available GPU.A10 shapes:
 
-    git clone https://github.com/mprestin77/terraform-oci-preemtible-pool
-    cd terraform-oci-preemtible-pool
-    ls
+VM.GPU.A10.1
+VM.GPU.A10.2
+BM.GPU.A10.4
 
-### Prerequisites
-First off, you'll need to do some pre-deploy setup.  That's all detailed [here](https://github.com/cloud-partners/oci-prerequisites).
+Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linux. Windows is supported by VM shapes only.
 
-Secondly, create a `terraform.tfvars` file and populate with the following information:
+       > **Note:** Rocky Linux is not officially supported by NVIDIA
 
-```
-# Authentication
-tenancy_ocid         = "<tenancy_ocid>"
-user_ocid            = "<user_ocid>"
-fingerprint          = "<finger_print>"
-private_key_path     = "<pem_private_key_path>"
+When provisioning a compute instance on OCI use a standard OS image.  Do not use GPU enabled images because the installed NVIDIA GPU driver does not support RTX virtual workstation (vWS) that requires NVIDIA vGPU driver to be installed.
 
-# Region
-region = "<oci_region>"
+    ![Image 1](./images/Image1.png "Image 1")
 
-# Compartment
-compartment_ocid        = "<compartment_ocid>"
+### Task 2: Download and install NVIDIA vGPU driver.
 
-````
-You can edit variables.tf file and and set values based on your requirements
+Download NVIDIA vGPU driver as described in [Downloading NVIDIA vGPU software](https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#redeeming-pak-and-downloading-grid-software). If you don’t have an enterprise account with NVIDIA you can register for trial at [Virtual GPU (vGPU) Software Free 90Days Trial - NVIDIA](https://www.nvidia.com/en-us/data-center/resources/vgpu-evaluation).
 
-### Create the Resources
-Download the latest Terraform version from https://www.terraform.io/downloads. Run the following commands:
+Log in NVIDIA Enterprise Application HUB using your NVIDIA Enterprise account. Open NVIDIA Licensing Portal and select Software Downloads. Apply the following filters:
 
-    terraform init
-    terraform plan
-    terraform apply
+•       Product Family: "VGPU"
+•       Platform: “Linux KVM"
 
-### Destroy the Deployment
-When you no longer need the deployment, you can run this command to destroy the resources:
+    ![Image 2](./images/Image2.png "Image 2")
 
-    terraform destroy
+Sort by Release Date and download the package with the latest vGPU drivers. For example, currently the latest vGPU version is 15.1. Unzip the file and go to Guest_Drivers folder. There you’ll find vGPU driver installation files for Windows and Linux.
 
-```
+### Task 3: Install NVIDIA vGPU driver on Linux
 
-## License
-Copyright (c) 2021 Oracle and/or its affiliates.
+- For Oracle Linux 8
 
-Licensed under the Universal Permissive License (UPL), Version 1.0.
+Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
+If you are using Oracle Linux 8.7 or later Oracle Linux image, prior to installing NVIDIA driver enable gcc-toolset-11 by running
 
-See [LICENSE](LICENSE) for more details.
+scl enable gcc-toolset-11 bash
+You’ll also need to disable nouveau driver that has a conflict with NVIDIA driver. 
 
+Check if nouveau driver is loaded by running
+
+lsmod | grep nouveau
