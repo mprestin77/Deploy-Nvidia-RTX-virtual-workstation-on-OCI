@@ -46,8 +46,7 @@ Log in NVIDIA Enterprise Application HUB using your NVIDIA Enterprise account. O
 •       Product Family: "VGPU"
 •       Platform: “Linux KVM"
 
-![Image2](./images/image2.png "Image 2")
-
+![Image2](https://user-images.githubusercontent.com/54962742/230503627-5d16006b-eb6f-44be-b65f-29f68b27c9e0.png)
 
 Sort by Release Date and download the package with the latest vGPU drivers. For example, currently the latest vGPU version is 15.1. Unzip the file and go to Guest_Drivers folder. There you’ll find vGPU driver installation files for Windows and Linux.
 
