@@ -34,7 +34,7 @@ Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linu
 
 When provisioning a compute instance on OCI use a standard OS image.  Do not use GPU enabled images because the installed NVIDIA GPU driver does not support RTX virtual workstation (vWS) that requires NVIDIA vGPU driver to be installed.
 
-![Image1](https://user-images.githubusercontent.com/54962742/230500087-5b25c22d-a4d5-4717-91eb-42ef1a2fd964.png)
+![Image1](https://user-images.githubusercontent.com/54962742/230504669-1f34055f-47d7-45cc-87d8-652a729b22aa.png)
 
 
 ### Task 2: Download and install NVIDIA vGPU driver.
@@ -46,7 +46,7 @@ Log in NVIDIA Enterprise Application HUB using your NVIDIA Enterprise account. O
 •       Product Family: "VGPU"
 •       Platform: “Linux KVM"
 
-![Image2](https://user-images.githubusercontent.com/54962742/230504467-349c53fa-234b-4c89-a3ae-abf976823920.png)
+![Image2](https://user-images.githubusercontent.com/54962742/230505048-24619fce-f92d-4d85-9636-d04edaa32970.png)
 
 Sort by Release Date and download the package with the latest vGPU drivers. For example, currently the latest vGPU version is 15.1. Unzip the file and go to Guest_Drivers folder. There you’ll find vGPU driver installation files for Windows and Linux.
 
