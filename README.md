@@ -61,9 +61,9 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   scl enable gcc-toolset-11 bash
   ```
   You’ll also need to disable nouveau driver that has a conflict with NVIDIA driver. Check if nouveau driver is loaded by running
-
+  ```
   lsmod | grep nouveau
-     
+  ```   
   If it shows nouveau driver in the output of the command, you’ll need to disable it first. To disable nouveau driver on Oracle Linux create the /etc/modprobe.d/blacklist-nouveau.conf file and add the content below:
   ```   
   blacklist nouveau
@@ -89,6 +89,52 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   sudo reboot 
   ``` 
   
+***Rocky Linux 9***
+
+  Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
+
+  Install Linux headers matching the version of Linux kernel
+  ```
+  yum dnf kernel-devel-$(uname -r)
+  ```
+  If it fails to find Linux headers matching the kernel version, upgrade Linux kernel and reboot the server
+  ```
+  sudo dnf install kernel
+
+  sudo reboot
+  ```
+  After reboot reinstall Linux headers to match Linux kernel version
+  ```
+  sudo install kernel-devel -y   
+  ```
+  Check if nouveau driver is loaded by running
+  ```
+  lsmod | grep nouveau
+  ``` 
+  If it shows nouveau driver in the output of the command, you’ll need to disable it first. To disable nouveau driver on Oracle Linux create the /etc/modprobe.d/blacklist-nouveau.conf file and add the content below:
+  ```
+  blacklist nouveau
+  
+  options nouveau modeset=0
+  
+  Save the file and re-generate initramfs
+  ```
+  sudo dracut --force
+  ```
+  After disabling the driver reboot the server
+  ```
+  sudo reboot
+  ```
+  Install NVIDIA vGPU driver by running:
+  ```  
+  sudo bash ./NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
+  ```
+  Ignore warnings and hit OK to continue with the installation.
+
+  Reboot the server
+  ```
+  sudo reboot 
+  ```
 
 
 
