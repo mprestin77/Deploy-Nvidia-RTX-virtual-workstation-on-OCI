@@ -73,9 +73,9 @@ Oracle Linux 8
   ```
   
   Save the file and re-generate initramfs:
-  
+  ``` 
   sudo dracut --force
-
+  ``` 
   After disabling the driver reboot the server
   
   sudo reboot
