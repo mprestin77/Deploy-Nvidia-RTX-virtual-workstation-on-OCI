@@ -54,7 +54,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
 
 - Oracle Linux 8
 
-Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
+     Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
      
      If you are using Oracle Linux 8.7 or later Oracle Linux image, prior to installing NVIDIA driver enable gcc-toolset-11 by running
 
@@ -65,5 +65,23 @@ Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provision
      lsmod | grep nouveau
      
      If it shows nouveau driver in the output of the command, you’ll need to disable it first. To disable nouveau driver on Oracle Linux create the /etc/modprobe.d/blacklist-nouveau.conf file and add the content below:
+     
+     blacklist nouveau
+     options nouveau modeset=0
+     
+     Save the file and re-generate initramfs.
+     sudo dracut --force
+
+     After disabling the driver reboot the server
+     sudo reboot
+     
+     Install NVIDIA vGPU driver by running:
+     sudo bash ./NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
+     Ignore warnings and hit OK to continue with the installation.
+     
+     Reboot the server
+     sudo reboot 
+
+
 
 
