@@ -74,7 +74,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   ``` 
   sudo dracut --force
   ``` 
-  After disabling the driver reboot the server
+  After disabling the driver reboot the server:
   ```   
   sudo reboot
   ```      
@@ -82,9 +82,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   ``` 
   sudo bash ./NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
   ``` 
-  Ignore warnings and hit OK to continue with the installation.
-       
-  Reboot the server:
+  Ignore warnings and hit OK to continue with the installation. Reboot the server:
   ``` 
   sudo reboot 
   ``` 
@@ -93,21 +91,21 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
 
   Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
 
-  Install Linux headers matching the version of Linux kernel
+  Install Linux headers matching the version of Linux kernel:
   ```
   yum dnf kernel-devel-$(uname -r)
   ```
-  If it fails to find Linux headers matching the kernel version, upgrade Linux kernel and reboot the server
+  If it fails to find Linux headers matching the kernel version, upgrade Linux kernel and reboot the server:
   ```
   sudo dnf install kernel
 
   sudo reboot
   ```
-  After reboot reinstall Linux headers to match Linux kernel version
+  After reboot reinstall Linux headers to match Linux kernel version:
   ```
   sudo install kernel-devel -y   
   ```
-  Check if nouveau driver is loaded by running
+  Check if nouveau driver is loaded by running:
   ```
   lsmod | grep nouveau
   ``` 
@@ -117,11 +115,11 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   
   options nouveau modeset=0
   ```
-  Save the file and re-generate initramfs
+  Save the file and re-generate initramfs:
   ```
   sudo dracut --force
   ```
-  After disabling the driver reboot the server
+  After disabling the driver reboot the server:
   ```
   sudo reboot
   ```
@@ -129,9 +127,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   ```  
   sudo bash ./NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
   ```
-  Ignore warnings and hit OK to continue with the installation.
-
-  Reboot the server
+  Ignore warnings and hit OK to continue with the installation. Reboot the server:
   ```
   sudo reboot 
   ```
