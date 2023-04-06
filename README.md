@@ -52,7 +52,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
 
 ### Task 3: Install NVIDIA vGPU driver on Linux
 
-- **_Oracle Linux 8_**
+**_Oracle Linux 8_**
 
   Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
      
