@@ -1,1 +1,0 @@
-oci compute instance list --compartment-id ocid1.compartment.oc1..aaaaaaaak4br2cpp6gggpquw6omq7ocf2kinkz3qi5oyjbispxped525cdga --all --profile=TCA --query "data [?\"lifecycle-state\" == 'RUNNING'].{OCID:id}"
