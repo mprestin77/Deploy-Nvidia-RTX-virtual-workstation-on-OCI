@@ -30,7 +30,7 @@ BM.GPU.A10.4
 
 Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linux. Windows is supported by VM shapes only.
 
-       > **Note:** Rocky Linux is not officially supported by NVIDIA
+       **Note:** Rocky Linux is not officially supported by NVIDIA
 
 When provisioning a compute instance on OCI use a standard OS image.  Do not use GPU enabled images because the installed NVIDIA GPU driver does not support RTX virtual workstation (vWS) that requires NVIDIA vGPU driver to be installed.
 
@@ -57,9 +57,9 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.
      
   If you are using Oracle Linux 8.7 or later Oracle Linux image, prior to installing NVIDIA driver enable gcc-toolset-11 by running
-
+  ```
   scl enable gcc-toolset-11 bash
-
+  ```
   You’ll also need to disable nouveau driver that has a conflict with NVIDIA driver. Check if nouveau driver is loaded by running
 
   lsmod | grep nouveau
