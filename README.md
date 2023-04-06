@@ -132,5 +132,100 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   sudo reboot 
   ```
 
+***Ubuntu 22***
+
+  Copy NVIDIA Linux driver NVIDIA-Linux-grid-xxx.xx.xx_amd64.deb to the provisioned compute instance.
+  
+  Check if nouveau driver is loaded by running
+  ```
+  lsmod | grep nouveau
+  ```
+  If it shows nouveau driver in the output of the command, you’ll need to disable it first. To disable nouveau driver on Oracle Linux create the /etc/modprobe.d/blacklist-nouveau.conf file and add the content below:
+  ```
+  blacklist nouveau
+  
+  options nouveau modeset=0
+  ```  
+  Save the file and re-generate initramfs:
+  ```
+  sudo dracut --force
+  ```
+  After disabling the driver reboot the server:
+  ```
+  sudo reboot
+  ```
+  Install NVIDIA vGPU driver by running:
+  ```
+  sudo bash ./NVIDIA-Linux-grid-xxx.xx.xx_amd64.deb
+  ```
+  Reboot the server
+  ```
+  sudo reboot 
+  ```
+  
+### Task 3: Verify that NVIDIA vGPU driver is installed
+
+Verify NVIDIA vGPU driver installation using nvidia-smi command:
+
+Enable NVIDIA RTX Virtual Workstation
+
+To enable NVIDIA RTX Virtual Workstation feature edit /etc/nvidia/gridd.conf 
+
+sudo vi /etc/nvidia/gridd.conf 
+and add a line
+
+FeatureType=2 
+
+Save changes and close the file.  
+Check if GSP firmware is enabled
+nvidia-smi -q | grep GSP
+If GSP firmware is enabled the command displays GSP firmware version. 
+ GSP Firmware Version                  : 525.85.05
+If GSP firmware is enabled, disable it by setting the NVIDIA module parameter  NVreg_EnableGpuFirmware to 0. Set this parameter by editing /etc/modprobe.d/nvidia.conf file
+sudo vi /etc/modprobe.d/nvidia.conf  
+adding the following entry to it:
+options nvidia NVreg_EnableGpuFirmware=0
+
+If the /etc/modprobe.d/nvidia.conf file does not already exist, create it.
+After disabling GSP you must reboot the server
+sudo reboot 
+Download the client configuration token from NVIDIA Licensing Portal or DLS appliance. For information how register NVIDIA vGPU license, refer to Registering with NVIDIA vGPU Software License Server
+Copy the client configuration token to the default location in /etc/nvidia/ClientConfigToken and set the file permissions to 744.
+
+sudo chmod 744 /etc/nvidia/ClientConfigToken/client_configuration_token_*.tok 
+Note: If you want to store the client configuration token in a custom location, copy the token to the directory that you created and set ClientConfigTokenPath configuration parameter in /etc/nvidia/gridd.conf to point to this directory. 
+Restart nvidia-gridd service
+sudo systemctl restart nvidia-gridd
+Run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed"
+
+ 
+If it fails to obtain the license and shows License Status “Unlicensed” check nvidia-gridd service log:
+sudo grep gridd /var/log/messages
+ 
+Install NVIDIA vGPU driver on Windows
+Copy the NVIDIA Windows driver package to the guest VM or physical host Run the uploaded NVIDIA vGPU driver installation *.exe file and use Custom Installation option. Make sure that both Graphics Driver and RTX Desktop Manager are selected (see the screenshot below)
+
+ 
+
+OCI A10 GPU VM is configured with GPU passthrough, and therefore you must set the vGPU driver behavior via regedit. For more information see Registering with NVIDIA vGPU Software License Server
+Virtual GPU Client Licensing User Guide
+
+Add the FeatureType DWord (REG_DWORD) registry value to the Windows registry key 
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm\Global\GridLicense
+Set this value to 2 to enable NVIDIA RTX Virtual Workstation license. 
+Download the client configuration token from NVIDIA Licensing Portal or DLS appliance. For information how register NVIDIA vGPU license, refer to Registering with NVIDIA vGPU Software License Server
+Copy the client configuration token to the folder
+
+%SystemDrive%:\Program Files\NVIDIA Corporation\vGPU Licensing\ClientConfigToken 
+
+From a command line or powershell run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed"
+
+Note: On Windows nvidia-smi.exe is installed by default in c:\Program Files\NVIDIA Corporation\NVSMI folder
+
+ 
+
+If it fails to obtain the license and shows License Status “Unlicensed” check licensing messages in the log %SystemDrive%\Users\Public\Documents\NvidiaLogging\Log.NVDisplay.Container.exe.log
+![image](https://user-images.githubusercontent.com/54962742/230512701-bef53ed5-d66b-4f8b-86a7-e0a2993e2ddd.png)
+
 
 
