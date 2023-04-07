@@ -22,7 +22,7 @@ To create a vitual cloud network (VCN) and launch a compute instance on OCI see
 
 [Create a VCN](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#create-a-vcn)
 
-[Launch COmpute Instance](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#launch-compute-instance)
+[Launch Compute Instance](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#launch-compute-instance)
 
 Choose one of available GPU.A10 shapes:
 ```
