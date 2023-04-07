@@ -190,11 +190,11 @@ If GSP firmware is enabled the command displays GSP firmware version:
 ```
  GSP Firmware Version                  : 525.85.05
 ```
-If GSP firmware is enabled, disable it by setting the NVIDIA module parameter  NVreg_EnableGpuFirmware to 0. Set this parameter by editing /etc/modprobe.d/nvidia.conf file
+If GSP firmware is enabled, disable it by setting the NVIDIA module parameter  NVreg_EnableGpuFirmware to 0. Set this parameter by editing /etc/modprobe.d/nvidia.conf file:
 ```
 sudo vi /etc/modprobe.d/nvidia.conf  
 ```
-adding the following entry to it:
+adding the following line to it:
 ```
 options nvidia NVreg_EnableGpuFirmware=0
 ```
