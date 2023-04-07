@@ -167,7 +167,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
 
 Verify NVIDIA vGPU driver installation using nvidia-smi command:
 
-![Image3](https://user-images.githubusercontent.com/54962742/230515912-0034d7f2-26d6-493c-b641-d100cff93267.png)
+![Image3](https://user-images.githubusercontent.com/54962742/230516122-d74e38c2-57e7-49f5-a7da-56074ba5c347.png)
 
 
 ### Task 3: Enable NVIDIA RTX Virtual Workstation
