@@ -212,11 +212,14 @@ sudo chmod 744 /etc/nvidia/ClientConfigToken/client_configuration_token_*.tok
 ```
   Note: If you want to store the client configuration token in a custom location, copy the token to the directory that you created and set ClientConfigTokenPath configuration parameter in /etc/nvidia/gridd.conf to point to this directory. 
 
-Restart nvidia-gridd service
+Restart nvidia-gridd service:
 ```
 sudo systemctl restart nvidia-gridd
 ```
-Run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed"
+Run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed".
+
+![Image4](https://user-images.githubusercontent.com/54962742/230515643-7128e3fa-96b0-461b-b32c-114cda7de733.png)
+
 
 If it fails to obtain the license and shows License Status “Unlicensed” check nvidia-gridd service log:
 ```
