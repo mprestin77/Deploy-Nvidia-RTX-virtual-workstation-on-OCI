@@ -38,7 +38,7 @@ If your tenancy does not have service limit set for GPU.A10, these shapes will n
 
 Compute limits are per availability domain. Check if the limit is set in any of availability domains of the region. If the service limit is set to 0 for all availability domains, you can click on request a service limit increase link and submit a request for limit increase for this resource.
 
-     Note: in order to access Limits, Quotas and Usage you need to be a tenancy Admininstrator or to have a policy added for your user group to read LimitsAndUsageViewers 
+     Note: in order to access Limits, Quotas and Usage you must be a member of the tenancy Admininstrators group or your group must have a policy assigned to read LimitsAndUsageViewers 
 
 For more information about service limits, see [Service Limits](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#ViewingYourServiceLimitsQuotasandUsage). 
      
