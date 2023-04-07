@@ -40,7 +40,7 @@ Compute limits are per availability domain. Check if the limit is set in any of 
 
   Note: in order to access Limits, Quotas and Usage you need to be a tenancy Admininstrator or to have a policy added for your user group to read LimitsAndUsageViewers 
 
-For more information about quotas, see [Service Limits](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#ViewingYourServiceLimitsQuotasandUsage). 
+For more information about service limits, see [Service Limits](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#ViewingYourServiceLimitsQuotasandUsage). 
      
 Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linux. Windows is supported by VM shapes only.
 
