@@ -16,7 +16,7 @@ inject-note: true
 NVIDIA RTX Virtual Workstation software enables users to run high-performance simulations, graphic rendering, and design workloads on cloud, with a native workstation-like performance. It unlocks powerful rendering capabilities provided by graphic APIs such as OpenGL or DirectX, bringing breakthrough graphics performance to the cloud. This article explains how to leverage RTX and NVIDIA Virtual GPU technology using NVIDIA A10 GPU-enabled compute shapes on Oracle Cloud Infrastructure (OCI)
 
 
-### Task 1: Provision a compute instance on OCI for Nvidia RTX virtual workstation.
+### Provision a compute instance on OCI for Nvidia RTX virtual workstation.
 
 To create a vitual cloud network (VCN) and launch a compute instance on OCI see
 [Create a VCN](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#create-a-vcn)
@@ -39,7 +39,7 @@ When provisioning a compute instance on OCI use a standard OS image.  Do not use
 ![Image1](https://user-images.githubusercontent.com/54962742/230504669-1f34055f-47d7-45cc-87d8-652a729b22aa.png)
 
 
-### Task 2: Download and install NVIDIA vGPU driver.
+### Download and install NVIDIA vGPU driver.
 
 Download NVIDIA vGPU driver as described in [Downloading NVIDIA vGPU software](https://docs.nvidia.com/grid/latest/grid-software-quick-start-guide/index.html#redeeming-pak-and-downloading-grid-software). If you don’t have an enterprise account with NVIDIA you can register for trial at [Virtual GPU (vGPU) Software Free 90Days Trial - NVIDIA](https://www.nvidia.com/en-us/data-center/resources/vgpu-evaluation).
 
@@ -52,7 +52,7 @@ Log in NVIDIA Enterprise Application HUB using your NVIDIA Enterprise account. O
 
 Sort by Release Date and download the package with the latest vGPU drivers. For example, currently the latest vGPU version is 15.1. Unzip the file and go to Guest_Drivers folder. There you’ll find vGPU driver installation files for Windows and Linux.
 
-### Task 3: Install NVIDIA vGPU driver on Linux
+### Install NVIDIA vGPU driver on Linux
 
 ***Oracle Linux 8***
 
@@ -165,14 +165,14 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
   sudo reboot 
   ```
   
-### Task 3: Verify that NVIDIA vGPU driver is installed
+### Verify that NVIDIA vGPU driver is installed
 
 Verify NVIDIA vGPU driver installation using nvidia-smi command:
 
 ![Image3](https://user-images.githubusercontent.com/54962742/230516122-d74e38c2-57e7-49f5-a7da-56074ba5c347.png)
 
 
-### Task 3: Enable NVIDIA RTX Virtual Workstation
+### Enable NVIDIA RTX Virtual Workstation
 
 To enable NVIDIA RTX Virtual Workstation feature edit /etc/nvidia/gridd.conf 
 ```
@@ -228,7 +228,7 @@ If it fails to obtain the license and shows License Status “Unlicensed” chec
 sudo grep gridd /var/log/messages
 ```
 
-### Task 3: Install NVIDIA vGPU driver on Windows
+### Install NVIDIA vGPU driver on Windows
 Copy the NVIDIA Windows driver package to the guest VM or physical host Run the uploaded NVIDIA vGPU driver installation *.exe file and use Custom Installation option. Make sure that both Graphics Driver and RTX Desktop Manager are selected (see the screenshot below)
 
 OCI A10 GPU VM is configured with GPU passthrough, and therefore you must set the vGPU driver behavior via regedit. For more information see [Virtual GPU Client Licensing User Guide](https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html)
