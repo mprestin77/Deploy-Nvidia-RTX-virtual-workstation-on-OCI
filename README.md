@@ -34,7 +34,7 @@ BM.GPU.A10.4
 ```
 When launching a compute instance change shape to one of the above shapes. To launch GPU.A10 VM click on Specialty and Previous Generation, and select one of VM.GPU.A10 shapes. For bare metal servers click on Bare metal machines and select BM.GPU.A10.4 shape.
 
-If your tenancy does not have service limit set for GPU.A10, these shapes will not be in the shape list. To check your tenancy limits in OCI Console, set the region where you are going to provision a GPU.A10 compute instance, open the navigation menu and click Governance & Administration. Under Tenancy Management select Limits, Quotas and Usage. Set the service to Compute, select one of availability domains in the scope field, and type GPU.A10 in the resource field. Select GPUs for A10 based VM and BM instances:
+If your tenancy does not have service limit set for GPU.A10, these shapes will not be in the shape list. To check your tenancy limits in OCI Console set the region where you are going to provision a GPU.A10 compute instance, open the navigation menu and click Governance & Administration. Under Tenancy Management select Limits, Quotas and Usage. Set the service to Compute, select one of availability domains in the scope field, and type GPU.A10 in the resource field. Select GPUs for A10 based VM and BM instances:
 
 ![Image7](https://user-images.githubusercontent.com/54962742/230644511-12752c7e-6331-40bb-89a5-e57d1322da89.png)
 
