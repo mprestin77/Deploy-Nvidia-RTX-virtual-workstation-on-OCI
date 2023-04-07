@@ -167,7 +167,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
 
 Verify NVIDIA vGPU driver installation using nvidia-smi command:
 
-![Image3](https://user-images.githubusercontent.com/54962742/230512997-fea01d51-c8c2-4963-8aa1-f4492295227f.png)
+![Image3](https://user-images.githubusercontent.com/54962742/230515912-0034d7f2-26d6-493c-b641-d100cff93267.png)
 
 
 ### Task 3: Enable NVIDIA RTX Virtual Workstation
@@ -218,7 +218,7 @@ sudo systemctl restart nvidia-gridd
 ```
 Run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed".
 
-![Image4](https://user-images.githubusercontent.com/54962742/230515643-7128e3fa-96b0-461b-b32c-114cda7de733.png)
+![Image4](https://user-images.githubusercontent.com/54962742/230515935-aed4e254-57f9-4073-a528-083dbe4f13c9.png)
 
 
 If it fails to obtain the license and shows License Status “Unlicensed” check nvidia-gridd service log:
