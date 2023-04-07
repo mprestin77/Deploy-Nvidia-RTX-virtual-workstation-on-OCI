@@ -19,7 +19,9 @@ NVIDIA RTX Virtual Workstation software enables users to run high-performance si
 ### Provision a compute instance on OCI for Nvidia RTX virtual workstation.
 
 To create a vitual cloud network (VCN) and launch a compute instance on OCI see
+
 [Create a VCN](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#create-a-vcn)
+
 [Launch COmpute Instance](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#launch-compute-instance)
 
 Choose one of available GPU.A10 shapes:
