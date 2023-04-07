@@ -38,7 +38,7 @@ If your tenancy does not have service limit set for GPU.A10, these shapes will n
 
 ![Image7](https://user-images.githubusercontent.com/54962742/230644511-12752c7e-6331-40bb-89a5-e57d1322da89.png)
 
-Compute limits are per availability domain. Check if the limit is set in any of availability domains of the region. If the service limit is set to 0 for all availability domains, you can click on request a service limit increase link and submit a request for limit increase for this resource.
+Compute limits are per availability domain. Check if the limit is set in any of availability domains of the region. If the service limit is set to 0 for all availability domains, you can click on "request a service limit increase" link and submit a limit increase request for this resource.
 
      Note: in order to access Limits, Quotas and Usage you must be a member of the tenancy Admininstrators group or your group must have a policy assigned to read LimitsAndUsageViewers 
 
