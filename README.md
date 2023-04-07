@@ -5,7 +5,7 @@ level: Advanced
 roles: Devops;Developer;
 lab-id:
 products: en/cloud/oracle-cloud-infrastructure/oci;
-keywords: OKE
+keywords: Nvidia GPU RTX 
 inject-note: true
 ---
 
