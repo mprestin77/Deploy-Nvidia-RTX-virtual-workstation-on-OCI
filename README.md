@@ -229,9 +229,7 @@ sudo grep gridd /var/log/messages
 ### Task 3: Install NVIDIA vGPU driver on Windows
 Copy the NVIDIA Windows driver package to the guest VM or physical host Run the uploaded NVIDIA vGPU driver installation *.exe file and use Custom Installation option. Make sure that both Graphics Driver and RTX Desktop Manager are selected (see the screenshot below)
 
-OCI A10 GPU VM is configured with GPU passthrough, and therefore you must set the vGPU driver behavior via regedit. For more information see [Registering with NVIDIA vGPU Software License Server](https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html)
-
-Virtual GPU Client Licensing User Guide
+OCI A10 GPU VM is configured with GPU passthrough, and therefore you must set the vGPU driver behavior via regedit. For more information see [Virtual GPU Client Licensing User Guide](https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html)
 
 Add the FeatureType DWord (REG_DWORD) registry value to the Windows registry key:
 ```
