@@ -271,7 +271,7 @@ If it fails to obtain the license and shows License Status “Unlicensed” chec
 vGPUs must be registered with NVIDIA Software License Server. vGPU licensing is enforced through NVIDIA software, the performance of the virtual GPU is degraded over time if the VM fails to obtain a license. Starting from vGPU version 13.0 NVIDIA License System supports the following types of service instances:
 •	Cloud License Service (CLS) instance. A CLS instance is hosted on the NVIDIA Licensing Portal
 •	Delegated License Service (DLS) instance. A DLS instance is hosted on-premises at a location that is accessible from your private network
-You can download DLS virtual appliance from NVIDIA Licensing Portal if you go to Software Downloads, select Non-Driver downloads and download, set Platform to "Linux KVM " and download the latest version of "NLS License Server (DLS) ... for Linux KVM". 
+You can download DLS virtual appliance from NVIDIA Licensing Portal if you go to Software Downloads, select Non-Driver downloads and download, set Platform to "Linux KVM " and download the latest version of "NLS License Server (DLS) ... for Linux KVM": 
 
 ![Image8](https://user-images.githubusercontent.com/54962742/230659002-7b30b3bd-d075-4b34-ac5f-2e8a3a5c700b.png)
 
