@@ -23,11 +23,13 @@ To create a vitual cloud network (VCN) and launch a compute instance on OCI see
 [Launch COmpute Instance](https://docs.oracle.com/en/learn/oci-basics-tutorial/index.html#launch-compute-instance)
 
 Choose one of available GPU.A10 shapes:
-
+```
 VM.GPU.A10.1
-VM.GPU.A10.2
-BM.GPU.A10.4
 
+VM.GPU.A10.2
+
+BM.GPU.A10.4
+```
 Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linux. Windows is supported by VM shapes only.
 
      Note: Rocky Linux is not officially supported by NVIDIA
