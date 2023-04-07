@@ -176,11 +176,12 @@ To enable NVIDIA RTX Virtual Workstation feature edit /etc/nvidia/gridd.conf
 ```
 sudo vi /etc/nvidia/gridd.conf 
 ```
-and add a line
+and add a line:
 ```
 FeatureType=2 
 ```
-Save changes and close the file.  
+Save the changes and close the file. 
+
 Check if GSP firmware is enabled:
 ```
 nvidia-smi -q | grep GSP
