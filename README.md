@@ -32,7 +32,7 @@ VM.GPU.A10.2
 
 BM.GPU.A10.4
 ```
-     Note: In order to access the GPU shapes, your tenancy must have a GPU quota. If your tenancy does not have a GPU quota, the GPU shapes will not be in the shape list. See Prerequisites for more information.
+In order to access the GPU shapes, your tenancy must have a GPU quota. If your tenancy does not have a GPU quota, the GPU shapes will not be in the shape list. See Prerequisites for more information.
      
 Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linux. Windows is supported by VM shapes only.
 
