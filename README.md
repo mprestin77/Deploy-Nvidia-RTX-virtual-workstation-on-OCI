@@ -32,7 +32,15 @@ VM.GPU.A10.2
 
 BM.GPU.A10.4
 ```
-In order to access the GPU shapes, your tenancy must have a GPU quota. If your tenancy does not have a GPU quota, the GPU shapes will not be in the shape list. See Prerequisites for more information.
+If your tenancy does not have service limit set for GPU.A10, these shapes will not be in the shape list. To check your tenancy limits in OCI Console, set the region where you are going to provision a GPU.A10 compute instance, open the navigation menu and click Governance & Administration. Under Tenancy Management select Limits, Quotas and Usage. Set the service to Compute, select one of availability domains in the scope field, and type GPU.A10 in the resource field. Select GPUs for A10 based VM and BM instances:
+
+![Image7](https://user-images.githubusercontent.com/54962742/230644511-12752c7e-6331-40bb-89a5-e57d1322da89.png)
+
+Compute limits are per availability domain. Check if the limit is set in any of availability domains of the region. If the service limit is set to 0 for all availability domains, you can click on request a service limit increase link and submit a request for limit increase for this resource.
+
+  Note: in order to access Limits, Quotas and Usage you need to be a tenancy Admininstrator or to have a policy added for your user group to read LimitsAndUsageViewers 
+
+For more information about quotas, see [Service Limits](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#ViewingYourServiceLimitsQuotasandUsage). 
      
 Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linux. Windows is supported by VM shapes only.
 
