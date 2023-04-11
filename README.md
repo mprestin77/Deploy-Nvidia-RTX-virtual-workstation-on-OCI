@@ -50,7 +50,7 @@ Currently OCI GPU.A10 compute shapes support Oracle Linux, Ubuntu and Rocky Linu
 
 When provisioning a compute instance on OCI use a standard OS image.  Do not use GPU enabled images because the installed NVIDIA GPU driver does not support RTX virtual workstation (vWS) that requires NVIDIA vGPU driver to be installed.
 
-![Image1](https://user-images.githubusercontent.com/54962742/230504669-1f34055f-47d7-45cc-87d8-652a729b22aa.png)
+![Image2](https://user-images.githubusercontent.com/54962742/230504669-1f34055f-47d7-45cc-87d8-652a729b22aa.png)
 
 
 ### Download and install NVIDIA vGPU driver.
@@ -62,7 +62,7 @@ Log in NVIDIA Enterprise Application HUB using your NVIDIA Enterprise account. O
 •       Product Family: "VGPU"
 •       Platform: “Linux KVM"
 
-![Image2](https://user-images.githubusercontent.com/54962742/230505291-440b61f5-3fe4-423a-bb87-b7f0658dc753.png)
+![Image3](https://user-images.githubusercontent.com/54962742/230505291-440b61f5-3fe4-423a-bb87-b7f0658dc753.png)
 
 Sort by Release Date and download the package with the latest vGPU drivers. For example, currently the latest vGPU version is 15.1. Unzip the file and go to Guest_Drivers folder. There you’ll find vGPU driver installation files for Windows and Linux.
 
@@ -183,7 +183,7 @@ Sort by Release Date and download the package with the latest vGPU drivers. For 
 
 Verify NVIDIA vGPU driver installation using nvidia-smi command:
 
-![Image3](https://user-images.githubusercontent.com/54962742/230516122-d74e38c2-57e7-49f5-a7da-56074ba5c347.png)
+![Image4](https://user-images.githubusercontent.com/54962742/230516122-d74e38c2-57e7-49f5-a7da-56074ba5c347.png)
 
 
 ### Enable NVIDIA RTX Virtual Workstation
@@ -234,7 +234,7 @@ sudo systemctl restart nvidia-gridd
 ```
 Run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed".
 
-![Image4](https://user-images.githubusercontent.com/54962742/230515935-aed4e254-57f9-4073-a528-083dbe4f13c9.png)
+![Image5](https://user-images.githubusercontent.com/54962742/230515935-aed4e254-57f9-4073-a528-083dbe4f13c9.png)
 
 
 If it fails to obtain the license and shows License Status “Unlicensed” check nvidia-gridd service log:
@@ -283,7 +283,7 @@ vGPUs must be registered with NVIDIA Software License Server. vGPU licensing is 
 
 You can download DLS virtual appliance from NVIDIA Licensing Portal if you go to Software Downloads, select Non-Driver downloads and download, set Platform to "Linux KVM " and download the latest version of "NLS License Server (DLS) ... for Linux KVM": 
 
-![Image8](https://user-images.githubusercontent.com/54962742/230659002-7b30b3bd-d075-4b34-ac5f-2e8a3a5c700b.png)
+![Image7](https://user-images.githubusercontent.com/54962742/230659002-7b30b3bd-d075-4b34-ac5f-2e8a3a5c700b.png)
 
 Unzip the file and upload DLS virtual appliance QCOW2 file to OCI Object Storage. After that you can import it to OCI as a paravirtualized custom image and create a VM from it. Alternatively, you can run DLS virtual appliance as one of VMs in KVM environment. For details how to obtain and register NVIDIA vGPU license and how to configure DLS license server please, refer to
 
