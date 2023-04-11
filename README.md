@@ -16,7 +16,7 @@ inject-note: true
 NVIDIA RTX Virtual Workstation software enables users to run high-performance simulations, graphic rendering, and design workloads on cloud, with a native workstation-like performance. It unlocks powerful rendering capabilities provided by graphic APIs such as OpenGL or DirectX, bringing breakthrough graphics performance to the cloud. This article explains how to leverage RTX and NVIDIA Virtual GPU technology using NVIDIA A10 GPU-enabled compute shapes on Oracle Cloud Infrastructure (OCI)
 
 
-### Provision a compute instance on OCI for Nvidia RTX virtual workstation.
+## Provision a compute instance on OCI for Nvidia RTX virtual workstation.
 
 To create a vitual cloud network (VCN) and launch a compute instance on OCI see
 
