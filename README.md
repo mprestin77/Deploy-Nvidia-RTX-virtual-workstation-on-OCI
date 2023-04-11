@@ -245,7 +245,7 @@ sudo grep gridd /var/log/messages
 ### Install NVIDIA vGPU driver on Windows
 Copy the NVIDIA Windows driver package to the guest VM or physical host where you are installing the driver.  Execute the package to unpack and run the driver installer. Accept the license agreement and select Express installation option:
 
-![image](https://user-images.githubusercontent.com/54962742/231230167-eeae8df1-51ce-42d1-9a44-e95f326f9629.png)
+![Image6](https://user-images.githubusercontent.com/54962742/231234631-da1132a6-11a4-4d68-adf0-93f056ab2981.png)
 
 OCI A10 GPU VM is configured with GPU passthrough, and therefore you must set the vGPU driver behavior via regedit. For more information see [Virtual GPU Client Licensing User Guide](https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html)
 
@@ -265,7 +265,7 @@ Copy the client configuration token to the folder
 ```
 From a command line or powershell run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed":
 
-![Image6](https://user-images.githubusercontent.com/54962742/231221101-d45520d3-c874-4787-8752-42b2992a25fe.png)
+![Image7](https://user-images.githubusercontent.com/54962742/231238536-dede6fc8-1a8a-47f8-84af-e718e8adc01e.png)
 
   Note: On Windows nvidia-smi.exe is installed by default in c:\Program Files\NVIDIA Corporation\NVSMI folder
 
@@ -283,7 +283,7 @@ vGPUs must be registered with NVIDIA Software License Server. vGPU licensing is 
 
 You can download DLS virtual appliance from NVIDIA Licensing Portal if you go to Software Downloads, select Non-Driver downloads and download, set Platform to "Linux KVM " and download the latest version of "NLS License Server (DLS) ... for Linux KVM": 
 
-![Image7](https://user-images.githubusercontent.com/54962742/230659002-7b30b3bd-d075-4b34-ac5f-2e8a3a5c700b.png)
+![Image8](https://user-images.githubusercontent.com/54962742/230659002-7b30b3bd-d075-4b34-ac5f-2e8a3a5c700b.png)
 
 Unzip the file and upload DLS virtual appliance QCOW2 file to OCI Object Storage. After that you can import it to OCI as a paravirtualized custom image and create a VM from it. Alternatively, you can run DLS virtual appliance as one of VMs in KVM environment. For details how to obtain and register NVIDIA vGPU license and how to configure DLS license server please, refer to
 
