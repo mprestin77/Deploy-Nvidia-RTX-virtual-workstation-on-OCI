@@ -243,7 +243,9 @@ sudo grep gridd /var/log/messages
 ```
 
 ### Install NVIDIA vGPU driver on Windows
-Copy the NVIDIA Windows driver package to the guest VM or physical host Run the uploaded NVIDIA vGPU driver installation *.exe file and use Custom Installation option. Make sure that both Graphics Driver and RTX Desktop Manager are selected (see the screenshot below)
+Copy the NVIDIA Windows driver package to the guest VM or physical host where you are installing the driver.  Execute the package to unpack and run the driver installer. Accept the license agreement and select Express Installation option:
+
+![image](https://user-images.githubusercontent.com/54962742/231230167-eeae8df1-51ce-42d1-9a44-e95f326f9629.png)
 
 OCI A10 GPU VM is configured with GPU passthrough, and therefore you must set the vGPU driver behavior via regedit. For more information see [Virtual GPU Client Licensing User Guide](https://docs.nvidia.com/grid/latest/grid-licensing-user-guide/index.html)
 
@@ -252,15 +254,20 @@ Add the FeatureType DWord (REG_DWORD) registry value to the Windows registry key
 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\nvlddmkm\Global\GridLicense
 ```
 Set this value to 2 to enable NVIDIA RTX Virtual Workstation license. 
-Download the client configuration token from NVIDIA Licensing Portal or DLS appliance. For information how register NVIDIA vGPU license, refer to Registering with NVIDIA vGPU Software License Server
+
+Restart the NVIDIA Display Container LS service.
+
+Download the client configuration token from NVIDIA Licensing Portal or DLS appliance. For information how register NVIDIA vGPU license, refer to Registering with NVIDIA vGPU Software License Server.
+
 Copy the client configuration token to the folder
 ```
 %SystemDrive%:\Program Files\NVIDIA Corporation\vGPU Licensing\ClientConfigToken 
 ```
-From a command line or powershell run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed"
+From a command line or powershell run "nvidia-smi -q" and check that the Product Brand is set to NVIDIA RTX and License Status displays "Licensed":
+
+![Image6](https://user-images.githubusercontent.com/54962742/231221101-d45520d3-c874-4787-8752-42b2992a25fe.png)
 
   Note: On Windows nvidia-smi.exe is installed by default in c:\Program Files\NVIDIA Corporation\NVSMI folder
-
 
 If it fails to obtain the license and shows License Status “Unlicensed” check licensing messages in the log:
 ```
