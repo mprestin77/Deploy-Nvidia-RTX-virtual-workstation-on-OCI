@@ -1,14 +1,3 @@
---
-duration: PT0H30M0S
-description: Learn how to deploy Nvidia RTX virtual workstation on OCI
-level: Advanced
-roles: Devops;Developer;
-lab-id:
-products: en/cloud/oracle-cloud-infrastructure/oci;
-keywords: Nvidia GPU RTX 
-inject-note: true
----
-
 # Deploy NVIDIA RTX Virtual Workstation on OCI
 
 ## Introduction
